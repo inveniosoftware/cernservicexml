@@ -2,7 +2,7 @@
  CERN Service XML v0.1.0 is released
 ===================================
 
-CERN Service XML v0.1.0 was released on TBD
+CERN Service XML v0.1.0 was released on 2015-06-16
 
 About
 -----
