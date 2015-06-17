@@ -15,9 +15,9 @@ from datetime import datetime
 from decimal import Decimal
 from os.path import dirname, join
 
-from StringIO import StringIO
 import pytest
 from cernservicexml import ServiceDocument
+from cernservicexml._compat import StringIO
 from lxml import etree
 
 schema = etree.XMLSchema(file=join(dirname(__file__), 'xsls_schema.xsd'))

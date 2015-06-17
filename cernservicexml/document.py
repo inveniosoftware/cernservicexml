@@ -11,12 +11,10 @@
 
 Usage:
 
-.. code-block:: python
-
-    >>> from cernservicexml import ServiceDocument
-    >>> doc = ServiceDocument('zenodo')
-    >>> doc.add_numericvalue('users', 1000, description="Number of users")
-    >>> xml = doc.to_xml()
+>>> from cernservicexml import ServiceDocument
+>>> doc = ServiceDocument('zenodo')
+>>> doc.add_numericvalue('users', 1000, desc="Number of users")
+>>> xml = doc.to_xml()
 """
 
 from __future__ import absolute_import, print_function, unicode_literals

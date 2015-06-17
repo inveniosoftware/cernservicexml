@@ -14,8 +14,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 from datetime import datetime
 
 from cernservicexml import ServiceDocument, XSLSPublisher
-
-from helpers import import_httpretty
+from cernservicexml._compat import import_httpretty
 
 httpretty = import_httpretty()
 

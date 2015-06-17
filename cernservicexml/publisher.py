@@ -9,13 +9,25 @@
 
 """Publishing of service documents.
 
+.. testsetup:: *
+
+   from cernservicexml._compat import import_httpretty
+   httpretty = import_httpretty()
+   httpretty.enable()
+   httpretty.register_uri(httpretty.POST, 'http://xsls.cern.ch',
+                          body="", status=200)
+
+.. testcleanup::
+
+   httpretty.disable()
+
+
 Usage:
 
-.. code-block:: python
-
-    >>> from cernservicexml import ServiceDocument, XSLSPublisher
-    >>> doc = ServiceDocument('myserviceid')
-    >>> XSLSPublisher.send(doc)
+>>> from cernservicexml import ServiceDocument, XSLSPublisher
+>>> doc = ServiceDocument('myserviceid')
+>>> XSLSPublisher.send(doc)
+<Response [200]>
 """
 
 from __future__ import absolute_import, print_function, unicode_literals
