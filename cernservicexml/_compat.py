@@ -24,11 +24,13 @@ if PY3:  # pragma: no cover
     text_type = str
     binary_type = bytes
     from io import StringIO
+    long_type = int
 else:    # pragma: no cover
     string_types = basestring,
     text_type = unicode
     binary_type = str
     from StringIO import StringIO
+    long_type = long
 
 
 def import_httpretty():  # pragma: no cover

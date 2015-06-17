@@ -17,7 +17,7 @@ from os.path import dirname, join
 
 import pytest
 from cernservicexml import ServiceDocument
-from cernservicexml._compat import StringIO
+from cernservicexml._compat import StringIO, long_type
 from lxml import etree
 
 schema = etree.XMLSchema(file=join(dirname(__file__), 'xsls_schema.xsd'))
@@ -114,6 +114,7 @@ def test_numericvalue():
     doc.add_numericvalue('val3', Decimal("0.1"))
     doc.add_numericvalue('val4', Decimal("0.1") + Decimal("0.2"))
     doc.add_numericvalue('val5', 1234, desc="a desc")
+    doc.add_numericvalue('val6', long_type(1234))
 
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
@@ -126,6 +127,7 @@ def test_numericvalue():
         '<numericvalue name="val3">0.1</numericvalue>' \
         '<numericvalue name="val4">0.3</numericvalue>' \
         '<numericvalue desc="a desc" name="val5">1234</numericvalue>' \
+        '<numericvalue name="val6">1234</numericvalue>' \
         '</data>' \
         '</serviceupdate>'
     assert validate_xsd(doc.to_xml())

@@ -23,7 +23,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from decimal import Decimal
 
-from ._compat import string_types, text_type, binary_type
+from ._compat import string_types, text_type, binary_type, long_type
 
 
 class ServiceDocument(object):
@@ -70,7 +70,7 @@ class ServiceDocument(object):
         """
         assert isinstance(name, string_types)
         assert isinstance(value, int) or isinstance(value, float) or \
-            isinstance(value, Decimal)
+            isinstance(value, Decimal) or isinstance(value, long_type)
         if desc is not None:
             assert isinstance(desc, string_types)
         self.data.append(dict(name=name, desc=desc, value=value))
