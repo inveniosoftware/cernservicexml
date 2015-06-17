@@ -105,5 +105,4 @@ class ServiceDocument(object):
         if isinstance(res, binary_type):
             res = res.decode('utf-8')
 
-        print(type(res))
         return res

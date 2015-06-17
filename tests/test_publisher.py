@@ -14,23 +14,12 @@ from __future__ import absolute_import, print_function, unicode_literals
 from datetime import datetime
 
 from cernservicexml import ServiceDocument, XSLSPublisher
-from cernservicexml._compat import binary_type
 
 from helpers import import_httpretty
 
 httpretty = import_httpretty()
 
 EXAMPLE_URL = "http://xsls.example.org"
-
-
-# @patch("datacite.request.requests")
-# def test_connection_error(requests):
-#     """Test connection error."""
-#     requests.get.side_effect = ConnectionError()
-
-#     c = get_client()
-#     with pytest.raises(DataCiteHttpError):
-#         c.doi_get("10.1234/foo.bar")
 
 
 @httpretty.activate
