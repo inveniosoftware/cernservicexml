@@ -1,13 +1,20 @@
 ===================================
- CERN Service XML v0.1.0 is released
+ CERN Service XML v0.1.1 is released
 ===================================
 
-CERN Service XML v0.1.0 was released on 2015-06-16
+CERN Service XML v0.1.1 was released on 2015-06-17
 
 About
 -----
 
 CERN Service XML is a small library to generate a CERN XSLS Service XML.
+
+What's new
+----------
+
+- Fixes issues with POST request for sending the service XML to XSLS.
+- Adds doctests to ensure documentation examples works.
+- Adds XML validation tests according to XSD Schema.
 
 Installation
 ------------
@@ -17,7 +24,7 @@ Installation
 Documentation
 -------------
 
-   http://cernservicexml.readthedocs.org/en/v0.1.0
+   http://cernservicexml.readthedocs.org/en/v0.1.1
 
 Homepage
 --------

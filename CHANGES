@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version 0.1.1 (released 2015-06-17)
+
+- Fixes issues with POST request for sending the service XML to XSLS.
+- Adds doctests to ensure documentation examples works.
+- Adds XML validation tests according to XSD Schema.
+
 Version 0.1.0 (released 2015-06-16)
 
 - Initial public release.
