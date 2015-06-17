@@ -62,6 +62,7 @@ tests_require = [
     'coverage<4.0a1',
     'httpretty>=0.8.0',
     'mock>=1.0',
+    'lxml>=3.4',
 ]
 
 setup(

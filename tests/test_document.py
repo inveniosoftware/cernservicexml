@@ -13,9 +13,20 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from datetime import datetime
 from decimal import Decimal
+from os.path import dirname, join
 
+from StringIO import StringIO
 import pytest
 from cernservicexml import ServiceDocument
+from lxml import etree
+
+schema = etree.XMLSchema(file=join(dirname(__file__), 'xsls_schema.xsd'))
+
+
+def validate_xsd(xmlstr):
+    """Assert if xml is valid according to XSD schema."""
+    schema.assertValid(etree.parse(StringIO(xmlstr)))
+    return True
 
 
 def test_creation_simple():
@@ -25,8 +36,7 @@ def test_creation_simple():
     assert isinstance(doc.timestamp, datetime)
     assert doc.availability == 100
 
-    print(doc.to_xml())
-
+    assert validate_xsd(doc.to_xml())
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
         '<id>myserviceid</id>' \
@@ -44,6 +54,7 @@ def test_creation_simple():
         '<availability>99</availability>' \
         '<timestamp>2015-01-01T00:00:00</timestamp>' \
         '</serviceupdate>'
+    assert validate_xsd(doc.to_xml())
 
 
 def test_creation_attrs():
@@ -68,6 +79,7 @@ def test_creation_attrs():
         '<webpage>http://example.org</webpage>' \
         '<availabilityinfo>Extra info</availabilityinfo>' \
         '</serviceupdate>'
+    assert validate_xsd(doc.to_xml())
 
 
 def test_outofbounds():
@@ -116,3 +128,4 @@ def test_numericvalue():
         '<numericvalue desc="a desc" name="val5">1234</numericvalue>' \
         '</data>' \
         '</serviceupdate>'
+    assert validate_xsd(doc.to_xml())

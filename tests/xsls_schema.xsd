@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+# This file is part of CERN Service XML
+# Copyright (C) 2015 CERN.
+#
+# CERN Service XML is free software; you can redistribute it and/or modify
+# it under the terms of the Revised BSD License; see LICENSE file for
+# more details.
+-->
+  <xs:schema
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:tns="http://sls.cern.ch/SLS/XML/update"
+   targetNamespace="http://sls.cern.ch/SLS/XML/update"
+   elementFormDefault="qualified"
+   attributeFormDefault="unqualified">
+
+  <!-- Types -->
+  <xs:simpleType name="singleId">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([a-zA-Z0-9\.\-_])+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stringNonEmpty">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="percentage">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Schema -->
+  <xs:element name="serviceupdate">
+    <xs:complexType>
+      <xs:all>
+        <!-- Mandatory fields -->
+        <xs:element name="id" type="tns:singleId" />
+        <xs:element name="timestamp" type="xs:dateTime" />
+        <xs:element name="availability" type="tns:percentage" />
+
+        <!-- Optional fields -->
+        <xs:element name="availabilityinfo" minOccurs="0" maxOccurs="1">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="availabilitydesc" type="tns:stringNonEmpty" minOccurs="0" maxOccurs="1" />
+        <xs:element name="contact" type="tns:stringNonEmpty" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="webpage" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+
+        <xs:element name="data" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numericvalue" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:decimal">
+                      <xs:attribute name="name" type="tns:stringNonEmpty" use="required" />
+                      <xs:attribute name="desc" type="tns:stringNonEmpty" use="optional" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
