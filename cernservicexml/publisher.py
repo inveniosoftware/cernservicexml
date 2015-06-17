@@ -34,6 +34,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import requests
 
+from ._compat import StringIO
 from .document import ServiceDocument
 
 
@@ -45,4 +46,5 @@ class XSLSPublisher(object):
     def send(cls, document, api_url='http://xsls.cern.ch'):
         """Send service document to XSLS."""
         assert isinstance(document, ServiceDocument)
-        return requests.post(api_url, data=document.to_xml())
+        return requests.post(api_url, files=dict(
+            file=StringIO(document.to_xml())))
