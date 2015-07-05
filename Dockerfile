@@ -29,7 +29,7 @@ WORKDIR /code
 ADD . /code
 
 # Install cernservicexml:
-RUN pip install -e .
+RUN pip install -e .[docs]
 
 # Run container as user `cernservicexml` with UID `1000`, which should match
 # current host user in most situations:

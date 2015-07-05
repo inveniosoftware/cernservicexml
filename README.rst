@@ -27,8 +27,6 @@ Documentation
 Documentation is readable at http://cernservicexml.readthedocs.org or can be
 build using Sphinx: ::
 
-    git submodule init
-    git submodule update
     pip install Sphinx
     python setup.py build_sphinx
 

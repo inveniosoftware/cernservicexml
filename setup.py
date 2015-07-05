@@ -78,6 +78,9 @@ setup(
     install_requires=[
         "requests>=2.3",
     ],
+    extras_require={
+        'docs': ['sphinx_rtd_theme'],
+    },
     cmdclass={'test': PyTest},
     classifiers=[
         'Programming Language :: Python :: 2',

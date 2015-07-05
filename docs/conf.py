@@ -7,6 +7,10 @@
 # it under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+"""Sphinx configuration."""
+
+from __future__ import print_function
+
 import sys
 import os
 import re
@@ -105,21 +109,23 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme_path = ['_themes']
-html_theme = 'flask_small'
-
+html_theme_path = []
+html_theme = 'sphinx_rtd_theme'
+try:
+    import sphinx_rtd_theme
+    _html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+except ImportError:
+    print("`sphinx_rtd_theme` not found, pip install it", file=sys.stderr)
+    _html_theme = "default"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
-    'index_logo': False,
-    'index_logo_height': '40px;',
-    'github_fork': 'inveniosoftware/cernservicexml',
-}
+#html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+html_theme_path = _html_theme_path
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -151,9 +157,7 @@ html_theme_options = {
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars = {
-    'index': ['sidebarintro.html', 'sourcelink.html', 'searchbox.html'],
-}
+#html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
