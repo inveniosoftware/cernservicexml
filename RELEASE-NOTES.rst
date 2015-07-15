@@ -1,8 +1,8 @@
 ===================================
- CERN Service XML v0.1.2 is released
+ CERN Service XML v0.2.0 is released
 ===================================
 
-CERN Service XML v0.1.2 was released on 2015-06-17
+CERN Service XML v0.2.0 was released on TBD
 
 About
 -----
@@ -12,7 +12,9 @@ CERN Service XML is a small library to generate a CERN XSLS Service XML.
 What's new
 ----------
 
-- Adds support for long (Python 2) integers.
+- Adds support for service status parameter in ``ServiceDocument``.
+- Deprecates use of service availability percentage in ``ServiceDocument``.
+  Please use service status parameter instead.
 
 Installation
 ------------
@@ -22,7 +24,7 @@ Installation
 Documentation
 -------------
 
-   http://cernservicexml.readthedocs.org/en/v0.1.2
+   http://cernservicexml.readthedocs.org/en/v0.2.0
 
 Homepage
 --------

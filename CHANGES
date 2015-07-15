@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version 0.2 (released TBD)
+
+- Adds support for service status parameter in ``ServiceDocument``.
+- Deprecates use of service availability percentage in ``ServiceDocument``.
+  Please use service status parameter instead.
+
 Version 0.1.2 (released 2015-06-17)
 
 - Adds support for long (Python 2) integers.

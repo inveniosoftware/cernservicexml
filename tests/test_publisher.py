@@ -42,5 +42,5 @@ def test_xslspublisher_send():
     assert 'file' in data
     assert data['file'][0].decode('utf-8') == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
-        '<id>myid</id><availability>100</availability>' \
+        '<id>myid</id><status>available</status>' \
         '<timestamp>2015-01-01T00:00:00</timestamp></serviceupdate>'

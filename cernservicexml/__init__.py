@@ -11,8 +11,8 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
-from .document import ServiceDocument
+from .document import ServiceDocument, Status
 from .publisher import XSLSPublisher
 from .version import __version__
 
-__all__ = ('ServiceDocument', 'XSLSPublisher', '__version__')
+__all__ = ('ServiceDocument', 'Status', 'XSLSPublisher', '__version__')

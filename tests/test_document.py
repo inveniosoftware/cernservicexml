@@ -16,7 +16,7 @@ from decimal import Decimal
 from os.path import dirname, join
 
 import pytest
-from cernservicexml import ServiceDocument
+from cernservicexml import ServiceDocument, Status
 from cernservicexml._compat import StringIO, long_type
 from lxml import etree
 
@@ -34,26 +34,64 @@ def test_creation_simple():
     doc = ServiceDocument('myserviceid')
     assert doc.service_id == 'myserviceid'
     assert isinstance(doc.timestamp, datetime)
-    assert doc.availability == 100
+    assert doc.status == Status.available
 
     assert validate_xsd(doc.to_xml())
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
         '<id>myserviceid</id>' \
-        '<availability>100</availability>' \
+        '<status>available</status>' \
         '<timestamp>{0}</timestamp>' \
         '</serviceupdate>'.format(doc.timestamp.isoformat())
 
     dt = datetime(2015, 1, 1, 0, 0, 0)
     doc = ServiceDocument('anotherid', timestamp=dt,
-                          availability=99)
+                          status=Status.degraded)
 
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
         '<id>anotherid</id>' \
-        '<availability>99</availability>' \
+        '<status>degraded</status>' \
         '<timestamp>2015-01-01T00:00:00</timestamp>' \
         '</serviceupdate>'
+    assert validate_xsd(doc.to_xml())
+
+
+def test_availablity_to_status():
+    """Test creation of a service document."""
+    dt = datetime(2015, 1, 1, 0, 0, 0)
+    doc = ServiceDocument('anotherid', timestamp=dt, availability=99)
+    assert doc.status == Status.available
+    assert doc.availability == 99
+    assert validate_xsd(doc.to_xml())
+
+    doc = ServiceDocument('anotherid', timestamp=dt, availability=60)
+    assert doc.status == Status.degraded
+    assert doc.availability == 60
+    assert validate_xsd(doc.to_xml())
+
+    doc = ServiceDocument('anotherid', timestamp=dt, availability=20)
+    assert doc.status == Status.unavailable
+    assert doc.availability == 20
+    assert validate_xsd(doc.to_xml())
+
+    with pytest.raises(AssertionError):
+        doc = ServiceDocument('anid', timestamp=dt, status=Status.unavailable,
+                              availability=20)
+
+    doc = ServiceDocument('anotherid', timestamp=dt, status='available')
+    assert doc.status == Status.available
+    assert doc.availability == 100
+    assert validate_xsd(doc.to_xml())
+
+    doc = ServiceDocument('anotherid', timestamp=dt, status='degraded')
+    assert doc.status == Status.degraded
+    assert doc.availability == 50
+    assert validate_xsd(doc.to_xml())
+
+    doc = ServiceDocument('anotherid', timestamp=dt, status='unavailable')
+    assert doc.status == Status.unavailable
+    assert doc.availability == 0
     assert validate_xsd(doc.to_xml())
 
 
@@ -72,7 +110,7 @@ def test_creation_attrs():
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
         '<id>myid</id>' \
-        '<availability>100</availability>' \
+        '<status>available</status>' \
         '<timestamp>2015-01-01T00:00:00</timestamp>' \
         '<availabilitydesc>My description</availabilitydesc>' \
         '<contact>info@example.org</contact>' \
@@ -91,11 +129,9 @@ def test_outofbounds():
     with pytest.raises(AssertionError):
         ServiceDocument('id', timestamp='1234')
     with pytest.raises(AssertionError):
-        ServiceDocument('id', availability=-1)
+        ServiceDocument('id', status=100)
     with pytest.raises(AssertionError):
-        ServiceDocument('id', availability=101)
-    with pytest.raises(AssertionError):
-        ServiceDocument('id', availability='100')
+        ServiceDocument('id', status='not-a-status')
     doc = ServiceDocument('id')
     with pytest.raises(AssertionError):
         doc.add_numericvalue(1234, 'val')
@@ -103,6 +139,13 @@ def test_outofbounds():
         doc.add_numericvalue('name', 1234, desc=1234)
     with pytest.raises(AssertionError):
         doc.add_numericvalue('name', 'astring', desc=1234)
+    # Remove in v0.3 (availability removed)
+    with pytest.raises(AssertionError):
+        ServiceDocument('id', availability=-1)
+    with pytest.raises(AssertionError):
+        ServiceDocument('id', availability=101)
+    with pytest.raises(AssertionError):
+        ServiceDocument('id', availability='100')
 
 
 def test_numericvalue():
@@ -119,7 +162,7 @@ def test_numericvalue():
     assert doc.to_xml() == \
         '<serviceupdate xmlns="http://sls.cern.ch/SLS/XML/update">' \
         '<id>myid</id>' \
-        '<availability>100</availability>' \
+        '<status>available</status>' \
         '<timestamp>2015-01-01T00:00:00</timestamp>' \
         '<data>' \
         '<numericvalue name="val1">1234</numericvalue>' \
