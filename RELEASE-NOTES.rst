@@ -2,7 +2,7 @@
  CERN Service XML v0.2.0 is released
 ===================================
 
-CERN Service XML v0.2.0 was released on TBD
+CERN Service XML v0.2.0 was released on 2015-07-16
 
 About
 -----
@@ -15,6 +15,10 @@ What's new
 - Adds support for service status parameter in ``ServiceDocument``.
 - Deprecates use of service availability percentage in ``ServiceDocument``.
   Please use service status parameter instead.
+- Changes documentation theme to the standard non-Flask RTD one.
+- Initial release of Docker configuration suitable for local developments.
+  `docker-compose build` rebuilds the image, `docker-compose run --rm web
+  python setup.py test` runs the test suite.
 
 Installation
 ------------
