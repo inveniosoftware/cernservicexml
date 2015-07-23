@@ -76,7 +76,7 @@ setup(
     zip_safe=False,
     tests_require=tests_require,
     install_requires=[
-        "requests>=2.3",
+        "requests>=1.1.0",
     ],
     extras_require={
         'docs': ['sphinx_rtd_theme'],

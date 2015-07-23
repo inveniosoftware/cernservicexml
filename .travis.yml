@@ -7,6 +7,7 @@
 # it under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+sudo: false
 
 language: python
 
@@ -16,10 +17,20 @@ python:
   - "3.3"
   - "3.4"
 
+env:
+  - REQUIREMENTS=lowest
+  - REQUIREMENTS=latest
+  - REQUIREMENTS=devel
+
+cache: pip
+
 install:
-  - pip install coveralls pep257 Sphinx httpretty
-  - pip install pytest pytest-pep8 pytest-cov pytest-cache
-  - pip install -e .
+  # Install test dependencies
+  - "travis_retry pip install coveralls pep257 Sphinx httpretty"
+  - "travis_retry pip install pytest pytest-pep8 pytest-cov pytest-cache"
+  - "if test -e requirements.${REQUIREMENTS}.${TRAVIS_PYTHON_VERSION}.txt; then REQ=${REQUIREMENTS}.${TRAVIS_PYTHON_VERSION}; else REQ=${REQUIREMENTS}; fi;"
+  - "travis_retry pip install -r requirements.${REQ}.txt"
+  - "travis_retry pip install -e ."
 
 script:
   - pep257 cernservicexml
