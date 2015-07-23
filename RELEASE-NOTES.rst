@@ -1,13 +1,13 @@
 ===================================
- CERN Service XML v0.2.0 is released
+ CERNServiceXML v0.2.0 is released
 ===================================
 
-CERN Service XML v0.2.0 was released on 2015-07-16
+CERNServiceXML v0.2.0 was released on July 16, 2015.
 
 About
 -----
 
-CERN Service XML is a small library to generate a CERN XSLS Service XML.
+CERNServiceXML is a small library to generate CERN XSLS Service XML.
 
 What's new
 ----------
@@ -35,7 +35,7 @@ Homepage
 
    https://github.com/inveniosoftware/cernservicexml
 
-Good luck and thanks for choosing CERN Service XML.
+Happy hacking and thanks for flying CERNServiceXML.
 
 | Invenio Development Team
 |   Email: info@invenio-software.org

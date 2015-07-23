@@ -1,6 +1,6 @@
-==================
- CERN Service XML
-==================
+================
+ CERNServiceXML
+================
 .. currentmodule:: cernservicexml
 
 .. raw:: html
@@ -22,7 +22,7 @@
 Installation
 ============
 
-The CERN Service XML package is on PyPI so all you need is:
+The CERNServiceXML package is on PyPI so all you need is:
 
 .. code-block:: console
 

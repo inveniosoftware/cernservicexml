@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 #
-# This file is part of CERN Service XML
+# This file is part of CERNServiceXML
 # Copyright (C) 2015 CERN.
 #
-# CERN Service XML is free software; you can redistribute it and/or modify
+# CERNServiceXML is free software; you can redistribute it and/or modify
 # it under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'CERN Service XML'
+project = u'CERNServiceXML'
 copyright = u'2015, CERN'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -209,7 +209,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'cernservicexml.tex', u'CERN Service XML Documentation',
+  ('index', 'cernservicexml.tex', u'CERNServiceXML Documentation',
    u'CERN', 'manual'),
 ]
 
@@ -239,7 +239,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'cernservicexml', u'CERN Service XML Documentation',
+    ('index', 'cernservicexml', u'CERNServiceXML Documentation',
      [u'CERN'], 1)
 ]
 
@@ -253,7 +253,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'cernservicexml', u'CERN Service XML Documentation',
+  ('index', 'cernservicexml', u'CERNServiceXML Documentation',
    u'CERN', 'cernservicexml', 'One line description of project.',
    'Miscellaneous'),
 ]

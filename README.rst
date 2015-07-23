@@ -1,6 +1,6 @@
-==================
- CERN Service XML
-==================
+================
+ CERNServiceXML
+================
 
 .. image:: https://travis-ci.org/inveniosoftware/cernservicexml.svg?branch=master
     :target: https://travis-ci.org/inveniosoftware/cernservicexml
@@ -13,17 +13,20 @@
 
 About
 =====
-CERN Service XML is a small library to generate a CERN XSLS Service XML and
-sending it to a remove service.
+
+CERNServiceXML is a small library to generate a CERN XSLS Service XML
+and sending it to a remove service.
 
 Installation
 ============
-CERN Service XML is on PyPI so all you need is: ::
+
+CERNServiceXML is on PyPI so all you need is: ::
 
     pip install cernservicexml
 
 Documentation
 =============
+
 Documentation is readable at http://cernservicexml.readthedocs.org or can be
 build using Sphinx: ::
 
@@ -32,6 +35,7 @@ build using Sphinx: ::
 
 Testing
 =======
+
 Running the test suite is as simple as: ::
 
     python setup.py test
