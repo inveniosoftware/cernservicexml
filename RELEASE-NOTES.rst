@@ -1,8 +1,8 @@
-===================================
- CERNServiceXML v0.2.0 is released
-===================================
+=======================
+ CERNServiceXML v0.2.1
+=======================
 
-CERNServiceXML v0.2.0 was released on July 16, 2015.
+CERNServiceXML v0.2.1 was released on July 24, 2015.
 
 About
 -----
@@ -12,13 +12,12 @@ CERNServiceXML is a small library to generate CERN XSLS Service XML.
 What's new
 ----------
 
-- Adds support for service status parameter in ``ServiceDocument``.
-- Deprecates use of service availability percentage in ``ServiceDocument``.
-  Please use service status parameter instead.
-- Changes documentation theme to the standard non-Flask RTD one.
-- Initial release of Docker configuration suitable for local developments.
-  `docker-compose build` rebuilds the image, `docker-compose run --rm web
-  python setup.py test` runs the test suite.
+- Relaxes Requests library version requirement from v2.3 to v1.1 to support
+  CERN SLC6/CentOS 7 distributions. Note, Python 3.4 requires Requests v2+.
+- Adds Travis test matrix to test multiple versions of the Requests library.
+- Standardises software name (CERNServiceXML) and package name (cernservicexml)
+  following usual inveniosoftware practices.
+- Fixes reST headline formatting in `RELEASE-NOTES.rst`.
 
 Installation
 ------------
@@ -28,7 +27,7 @@ Installation
 Documentation
 -------------
 
-   http://cernservicexml.readthedocs.org/en/v0.2.0
+   http://cernservicexml.readthedocs.org/en/v0.2.1
 
 Homepage
 --------

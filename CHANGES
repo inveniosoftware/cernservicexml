@@ -1,7 +1,16 @@
 Changes
 =======
 
-Version 0.2 (released 2015-07-16)
+Version 0.2.1 (released 2015-07-24)
+
+- Relaxes Requests library version requirement from v2.3 to v1.1 to support
+  CERN SLC6/CentOS 7 distributions. Note, Python 3.4 requires Requests v2+.
+- Adds Travis test matrix to test multiple versions of the Requests library.
+- Standardises software name (CERNServiceXML) and package name (cernservicexml)
+  following usual inveniosoftware practices.
+- Fixes reST headline formatting in `RELEASE-NOTES.rst`.
+
+Version 0.2.0 (released 2015-07-16)
 
 - Adds support for service status parameter in ``ServiceDocument``.
 - Deprecates use of service availability percentage in ``ServiceDocument``.
