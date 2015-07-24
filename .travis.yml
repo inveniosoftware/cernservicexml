@@ -51,7 +51,6 @@ deploy:
   password:
     secure: OO7o5i5aF1UEPOpq0uU4ObNwcQs+btzVMcaQJh0g5P4JDyMbgj8fLKi7u0eQDq3SITlVf3y05KTEqsLwq4emmEwlHUq5gjmBPv+F/8VXjZiYEIq+nqztBDdw1k2wD8cj/xV2RPAmjheFUmSb5/vFf/TY7Ifb9f5zZ1CsLeIhjrwQrXmhOeCGhgMS76S3br1339xJ67L/IW3nLyt62/1nV9eLBCcBrzEZJiDJnn1UdloPKAt23e31AQs04WT5Cw0gNPv3z8QqinbiuOAAMjoAP/hoTdSbt1cTBGYoc9QMJVn14vDWPYfc2K/3KCCo8gUrbHXAVmkUIeI/5tHMGauKPb+vdoq77VrK1X96mRucRAUv6UnbuE0MLOeLl3XcSVpq6IRz3n4jox41LJtuTNMQ2qUriHKaWzp4+k8tpLpmLqrI3lLUJBQLRmnrpXFt4JBoMcZBnYpGYS88+zdWOEmccVTrjgQ4shxkYfZQ6fAaLDFt5toJNYcFfKE5L12WywypXrTLNCpKMz6DeyVlsqG2K0mJJLABDYhaUEyh8zCiNgDXhFlKf3DrqoICQv4G4Z7g8DMZE/w9SBnintlrvLIOnsAq/zo8pkG3LxHCb7uWJOfCBwzFgG0xtstOH06xWqNGAfIH8aLzFqVP38BY4FJCa65blU87B1p6PRlnvoGIAmA=
   distributions: "sdist bdist_wheel"
-  server: https://testpypi.python.org/pypi
   on:
     tags: true
     python: "2.7"
