@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERNServiceXML
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # CERNServiceXML is free software; you can redistribute it and/or modify
 # it under the terms of the Revised BSD License; see LICENSE file for
@@ -28,7 +28,6 @@ from ._compat import binary_type, long_type, string_types, text_type
 
 
 class Status(object):
-
     """Representation of availability status."""
 
     available = 'available'
@@ -42,7 +41,6 @@ class Status(object):
 
 
 class ServiceDocument(object):
-
     """XSLS Service Document class.
 
     :param service_id: A unique service id.
