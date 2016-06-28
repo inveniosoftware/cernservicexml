@@ -41,7 +41,7 @@ setup(
     version=version,
     description=__doc__,
     author='Invenio Collaboration',
-    author_email='info@invenio-software.org',
+    author_email='info@inveniosoftware.org',
     url='https://github.com/inveniosoftware/cernservicexml',
     packages=['cernservicexml'],
     zip_safe=False,
