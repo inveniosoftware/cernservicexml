@@ -27,7 +27,7 @@ Installation
 Documentation
 -------------
 
-   http://cernservicexml.readthedocs.org/en/v0.2.1
+   http://cernservicexml.readthedocs.io/en/v0.2.1
 
 Homepage
 --------

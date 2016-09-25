@@ -27,7 +27,7 @@ CERNServiceXML is on PyPI so all you need is: ::
 Documentation
 =============
 
-Documentation is readable at http://cernservicexml.readthedocs.org or can be
+Documentation is readable at http://cernservicexml.readthedocs.io or can be
 build using Sphinx: ::
 
     pip install Sphinx
