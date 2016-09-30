@@ -34,6 +34,7 @@ tests_require = [
     'mock>=1.0',
     'lxml>=3.4',
     'pydocstyle>=1.0.0',
+    'check-manifest'
 ]
 
 setup(
