@@ -7,10 +7,15 @@
 # it under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-include LICENSE AUTHORS CHANGES *.rst
+include *.txt
+include *.yml
 include .coveragerc run-tests.sh pytest.ini tox.ini
+include .lgtm .editorconfig .dockerignore
+include Dockerfile
+include LICENSE AUTHORS CHANGES *.rst
+include MAINTAINERS
 include docs/*.rst docs/*.py docs/Makefile docs/requirements.txt
-recursive-include docs/_themes *.py *.css *.css_t *.conf *.html LICENSE README
 recursive-include docs/_templates *.html
+recursive-include docs/_themes *.py *.css *.css_t *.conf *.html LICENSE README
 recursive-include tests *.py
 recursive-include tests *.xsd
