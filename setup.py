@@ -24,6 +24,7 @@ with open(os.path.join('cernservicexml', 'version.py'), 'rt') as f:
     ).group('version')
 
 tests_require = [
+    'check-manifest>=0.25',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
@@ -34,7 +35,6 @@ tests_require = [
     'mock>=1.0',
     'lxml>=3.4',
     'pydocstyle>=1.0.0',
-    'check-manifest'
 ]
 
 setup(
@@ -48,7 +48,7 @@ setup(
     zip_safe=False,
     tests_require=tests_require,
     install_requires=[
-        "requests>=1.1.0",
+        'requests>=1.1.0',
     ],
     extras_require={
         'docs': ['sphinx_rtd_theme'],
