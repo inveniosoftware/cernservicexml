@@ -6,9 +6,9 @@
     :target: https://travis-ci.org/inveniosoftware/cernservicexml
 .. image:: https://coveralls.io/repos/inveniosoftware/cernservicexml/badge.svg?branch=master
     :target: https://coveralls.io/r/inveniosoftware/cernservicexml
-.. image:: https://pypip.in/v/cernservicexml/badge.svg
+.. image:: https://img.shields.io/pypi/v/cernservicexml.svg
     :target: https://pypi.python.org/pypi/cernservicexml/
-.. image:: https://pypip.in/d/cernservicexml/badge.svg
+.. image:: https://img.shields.io/pypi/dm/cernservicexml.svg
     :target: https://pypi.python.org/pypi/cernservicexml/
 
 About
