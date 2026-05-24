@@ -1,11 +1,6 @@
 #!/bin/sh
-#
-# This file is part of CERNServiceXML
-# Copyright (C) 2015, 2016 CERN.
-#
-# CERNServiceXML is free software; you can redistribute it and/or modify
-# it under the terms of the Revised BSD License; see LICENSE file for
-# more details.
+# SPDX-FileCopyrightText: 2015, 2016 CERN.
+# SPDX-License-Identifier: BSD-3-Clause
 
 pydocstyle cernservicexml && \
 check-manifest --ignore ".travis-*" && \
